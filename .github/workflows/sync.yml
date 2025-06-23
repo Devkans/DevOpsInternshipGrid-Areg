@@ -12,13 +12,13 @@ jobs:
     steps:
       # Step 1: Checkout your own repo (where the workflow lives)
       - name: Checkout my repo
-        uses: actions/checkout
+        uses: actions/checkout@v4
         with:
           path: my-repo
 
       # Step 2: Checkout mentor's repo into separate folder
       - name: Checkout mentor's repo
-        uses: actions/checkout
+        uses: actions/checkout@v4
         with:
           repository: nlopatin-gd/argevorgyan-internship
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -26,20 +26,20 @@ jobs:
 
       # Step 3: Copy mentor files to your repo folder
       - name: Copy files from mentor to my repo
-        uses: actions/upload-artifact
+        uses: actions/upload-artifact@v4
         with:
           name: mentor-files
           path: mentor-repo/
           
       - name: Download mentor files artifact
-        uses: actions/download-artifact
+        uses: actions/download-artifact@v4
         with:
           name: mentor-files
           path: my-repo/
 
       # Step 4: Commit & push changes
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action
+        uses: stefanzweifel/git-auto-commit-action@v6
         with:
           commit_message: "Sync from mentor repo"
           branch: main
