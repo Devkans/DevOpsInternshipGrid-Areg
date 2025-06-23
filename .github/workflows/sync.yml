@@ -43,4 +43,4 @@ jobs:
         with:
           commit_message: "Sync from mentor repo"
           branch: main
-          directory: my-repo
+          directory: my-repo/DevOpsInternshipGrid-Areg
