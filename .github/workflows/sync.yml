@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout your own repo (where the workflow lives)
+      # Checkout
       - name: Checkout my repo
         uses: actions/checkout@v4
         with:
           path: my-repo
 
-      # Step 2: Checkout mentor's repo into separate folder
+      #Checkout mentor's repo
       - name: Checkout mentor's repo
         uses: actions/checkout@v4
         with:
@@ -24,7 +24,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           path: mentor-repo
 
-      # Step 3: Copy mentor files to your repo folder
+      # Copy files from mentor's repo to my repo
       - name: Copy files from mentor to my repo
         uses: actions/upload-artifact@v4
         with:
@@ -37,10 +37,12 @@ jobs:
           name: mentor-files
           path: my-repo/
 
-      # Step 4: Commit & push changes
+      # Commit & push changes
       - name: Commit and push changes
-        uses: stefanzweifel/git-auto-commit-action@v6
-        with:
-          commit_message: "Sync from mentor repo"
-          branch: main
-          repository: my-repo
+        run: |
+       git config user.name "github-actions[bot]"
+       git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+       git add .
+       git commit -m "Synced latest changes from mentor repo" || echo "No changes to commit"
+       git push origin main
