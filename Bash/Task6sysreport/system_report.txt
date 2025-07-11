@@ -1,0 +1,15 @@
+===== System Report =====
+Date and Time       : Fri Jul 11 22:20:53 +04 2025
+Current User        : devkan
+Hostname            : Dektop
+Internal IP Address : 192.168.143.96
+External IP Address : 5.77.192.68
+Distribution        : Ubuntu 24.04.1 LTS (Noble Numbat)
+System Uptime       : up 32 minutes
+
+Disk Usage on '/'   : Used: 8.4G, Free: 230G
+RAM Info            : Total: 7.7Gi, Free: 6.6Gi
+CPU Cores           : 6
+CPU mhz             : 2903.999 MHz
+
+=========================
